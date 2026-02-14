@@ -41,7 +41,6 @@ mysqli_query($mysqli, $order_sql);
 
 $order_id = mysqli_insert_id($mysqli);
 
-// 3️⃣ Insert order items
 $cart_sql = "
 SELECT * FROM store_shoppertrack
 WHERE session_id='{$_COOKIE['PHPSESSID']}'
@@ -74,4 +73,13 @@ mysqli_close($mysqli);
 
 echo "<h1>Order Complete</h1>";
 echo "<p>Your order ID is <strong>$order_id</strong></p>";
+echo "
+<p>
+  <a href='seestore.php'>
+    <button type='button'>⬅ Back to Store</button>
+  </a>
+</p>
+";
+
+
 ?>

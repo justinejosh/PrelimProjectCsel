@@ -10,6 +10,11 @@ $item_res = mysqli_query($mysqli, $item_sql);
 $item = mysqli_fetch_assoc($item_res);
 
 echo "<h1>{$item['item_title']}</h1>";
+echo "
+<p>
+  <button onclick=\"history.back()\">⬅ Back to Items</button>
+</p>
+";
 echo "<p>{$item['item_desc']}</p>";
 echo "<p>Price: \${$item['item_price']}</p>";
 

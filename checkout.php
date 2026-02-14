@@ -46,7 +46,9 @@ session_start();
   <label>Email:</label><br>
   <input type="email" name="order_email" required>
 </p>
-
+<p>
+  <button onclick="history.back()">⬅ Back</button>
+</p>
 <button type="submit">Place Order</button>
 
 </form>

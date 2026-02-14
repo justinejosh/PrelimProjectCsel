@@ -28,7 +28,11 @@ if (mysqli_num_rows($res) < 1) {
         </tr>";
     }
     echo "</table>";
-
+    echo "
+    <p>
+    <button onclick=\"history.back()\">⬅ Back to Items</button>
+    </p>
+    ";
     echo "
     <p>
       <a href='checkout.php'>
