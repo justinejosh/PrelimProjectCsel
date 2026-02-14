@@ -28,6 +28,14 @@ if (mysqli_num_rows($res) < 1) {
         </tr>";
     }
     echo "</table>";
+
+    echo "
+    <p>
+      <a href='checkout.php'>
+        <button type='button'>Proceed to Checkout</button>
+      </a>
+    </p>
+    ";
 }
 mysqli_close($mysqli);
 ?>
