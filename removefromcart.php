@@ -1,14 +1,21 @@
 <?php
 session_start();
-$mysqli = mysqli_connect("localhost","root","","testDB");
 
-$id = mysqli_real_escape_string($mysqli, $_GET['id']);
+if (isset($_GET['id'])) {
+    //connect to database - CHANGE CREDENTIALS HERE
+    $mysqli = mysqli_connect("localhost", "root", "", "testDB");
 
-mysqli_query($mysqli,
-"DELETE FROM store_shoppertrack 
- WHERE id='$id' AND session_id='{$_COOKIE['PHPSESSID']}'");
+    $safe_id = mysqli_real_escape_string($mysqli, $_GET['id']);
 
-mysqli_close($mysqli);
-header("Location: showcart.php");
-exit;
+    $delete_item_sql = "DELETE FROM store_shoppertrack WHERE id = '".$safe_id."' and session_id = '".$_COOKIE['PHPSESSID']."'";
+    $delete_item_res = mysqli_query($mysqli, $delete_item_sql) or die(mysqli_error($mysqli));
+
+    mysqli_close($mysqli);
+
+    header("Location: showcart.php");
+    exit;
+} else {
+    header("Location: seestore.php");
+    exit;
+}
 ?>
